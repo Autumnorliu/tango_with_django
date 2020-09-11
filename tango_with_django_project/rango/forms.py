@@ -21,6 +21,14 @@ class PageForm(forms.ModelForm):
                          help_text='Please enter the url of the page')
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
+    def clean(self):    # 规范用户输入
+        cleaned_data = self.cleaned_data
+        url = cleaned_data.get('url')
+        if url and not url.startwith('http://'):
+            url = 'http://' + url
+
+            return cleaned_data
+
     class Meta:
         model = Page
         exclude = ('category',)

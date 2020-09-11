@@ -19,6 +19,9 @@
                     <a href="/rango/category/{{category.slug}}">{{category.name}}</a>
                 </li>
             {% endfor %}
+<br>
+            <!-- -->
+            <li><a href="/rango/add_category/" style="color: red">Add a new category</a></li> <br>
         </ul>
         {% else %}
             <strong>There are no categories present!</strong>
@@ -28,6 +31,7 @@
     <h1>Most Viewed Pages</h1>
     <div>
         <a href="/rango/about/">About</a> <br>
+
         <img src="{% static 'images/songshu.jpg' %}" alt="Picture of Rango" />
     </div>
 </body>
