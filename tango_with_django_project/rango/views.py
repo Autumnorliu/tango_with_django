@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponsePermanentRedirect
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -123,3 +124,14 @@ def user_login(request):
 
     else:
         return render(request, 'rango/login.html', {})
+
+
+@login_required
+def restricted(request):
+    return HttpResponse("Since you are logged in , you can see this!!")
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponsePermanentRedirect(reverse('index'))
