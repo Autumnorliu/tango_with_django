@@ -20,7 +20,7 @@
         <ul>
             {% for category in categories %}
                 <li>
-                    <a href="{% url 'rango:show_category' category.slug %}">{{category.name}}</a>
+                    <a href="{% url 'show_category' category.slug %}">{{category.name}}</a>
                 </li>
             {% endfor %}
 <br>
@@ -34,13 +34,13 @@
 
     <h1>Most Viewed Pages</h1>
     <div>
-        <a href="{% url 'rango:about'%}">About</a> <br>
+        <a href="{% url 'about'%}">About</a> <br>
 
         <img src="{% static 'images/songshu.jpg' %}" alt="Picture of Rango" />
     </div>
 
-    <a href="{% url 'rango:register' %}">Register Here</a> <br>
-    <a href="{% url 'rango:login' %}">Login</a>  <br>
-    <a href="{% url 'rango:logout' %}">Logout</a>
+    <a href="{% url 'registration_register' %}">Register Here</a> <br>
+    <a href="{% url 'auth_login' %}">Login</a>  <br>
+    <a href="{% url 'auth_logout' %}?next=/rango/">Logout</a>
 </body>
 </html>

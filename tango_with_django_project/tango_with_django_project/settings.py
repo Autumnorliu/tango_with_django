@@ -39,7 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
 ]
+# 语序用户登录
+REGISTRATION_OPEN = True
+# 留一周的激活时间
+ACCOUNT_ACTIVATION_DAYS = 7
+# 注册后自动登录
+REGISTRATION_AUTO_LOGIN = True
+# 登录后呈现给用户的界面
+LOGIN_REDIRECT_URL = '/rango/'
+# 未登录页面
+LOGIN_URL = '/accounts/login/'
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,4 +138,4 @@ STATICFILES_DIRS = [STATIC_DIR]
 STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-LOGIN_URL = '/rango/login/'
+LOGIN_URL = '/accounts/login/'
